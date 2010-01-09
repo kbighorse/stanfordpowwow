@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+    <div>{{greeting}}</div>
+    <form action="/apply" method="post">
+      <div>Booth Name:&nbsp;<input type="text" name="boothname" /></div>
+      <div>Booth Type:&nbsp;
+        <select name="type" />
+          <option value="arts1">Arts and Crafts (single)</option>
+          <option value="arts2">Arts and Crafts (double)</option>
+          <option value="food">Food</option>
+          <option value="info">Information</option>
+        </select>
+      </div>
+      <div><input type="submit" value="Submit Vendor Application"></div>
+    </form>
+  </body>
+</html>
