@@ -4,16 +4,20 @@ runtime: python
 api_version: 1
 
 handlers:
-- url: /stylesheets
-  static_dir: stylesheets
-
-- url: /static
-  static_dir: static
-
 - url: /apply
   script: vendorapp.py
   login: required
 
-- url: /.*
-  script: vendorapp.py
-  login: required
+- url: /
+  static_files: static/index.html
+  upload: static/index.html
+  
+- url: (/.*)
+  static_files: static\1
+  upload: static/.*
+  require_matching_file: True
+  secure: optional
+
+# - url: /.*
+#   script: vendorapp.py
+#   login: required
