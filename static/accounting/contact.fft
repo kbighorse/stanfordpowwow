@@ -1,0 +1,65 @@
+<INPUT_FORM>
+FORMAT=Accounting_Form
+</INPUT_FORM>
+
+<FORMAT NAME=Accounting_Form>
+	<TITLE>Web Accounting Form</TITLE>
+	<H1>Send info about ONE RECEIPT to your AISES & Powwow treasurer</H1>
+	
+	Your name: <BR>
+	<INPUT TYPE="text" NAME=name SIZE=70><BR>
+	Your e-mail address: <BR>
+	<INPUT TYPE="text" NAME=email SIZE=70><BR>
+	Is this for AISES or Powwow? <BR>
+	<INPUT TYPE="text" NAME=whichgroup SIZE=10><BR>
+	Business: <BR>
+	<INPUT TYPE="text" NAME=business SIZE=70><BR>
+	Amount: ($) <BR>
+	<INPUT TYPE="text" NAME=amount SIZE=10><BR>
+	
+	<BR>
+	Description: (dates, reason, etc.)<br>
+	<TEXTAREA NAME="message" ROWS=10 COLS=70></TEXTAREA>
+	<BR>
+	
+	
+	<INPUT TYPE="submit" VALUE="Done">
+	<INPUT TYPE="reset" VALUE="Clear Form">
+</FORMAT>
+
+<ACTION>
+	OUTPUT=mailto:kjono@stanford.edu
+	FORMAT=MailForm
+</ACTION>
+
+
+<FORMAT NAME=MailForm>
+-----------------------------------
+-BY WAY OF THE Accounting WEB FORM:
+-----------------------------------
+FROM: @name@
+EMAIL: @email@
+-----------------------------------
+
+ORGANIZATION: @whichgroup@
+
+-----------------------------------
+BUSINESS: @business@
+AMOUNT: @amount@
+-----------------------------------
+@message@
+
+</FORMAT>
+
+<ACTION>
+	OUTPUT=reply
+	FORMAT=ReplyForm
+</ACTION>
+
+<FORMAT NAME=ReplyForm>
+	Thanks for contacting your treasurer.
+	Please leave your original receipt with your name and organization
+written on it in the AISES box in the center. <a href="index.html">Back
+to Accounting for a new receipt</a>.
+</FORMAT>
+
